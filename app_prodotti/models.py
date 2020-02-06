@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # questi modelli rappresentano le tabelle relative all'app_prodotti
 class Prodotto(models.Model):
     nome = models.CharField(max_length=255)

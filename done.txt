@@ -1,0 +1,9 @@
+POSTGRES DB SETUP FOR DJANGO
+- ho installato psycopg2, una libreria di python per connettersi a DB di postgres
+- ho creato un DB postgres (user linda, psw admin), mi son data tutti i permessi sul db
+- ho settato encoding UTF-8 e timezone UTC al db
+- ho settato il database postgres in settings.py
+- ho fatto "migrate" per creare le tabelle di base di django
+- per poter usare il pannello admin di django creo superuser (se non c'è già)
+- aggiunto tabelle dei modelli al db, makemigrations <nome app esistente>
+- settato "admin.py" per registrare tabelle db su pannello admin di django
