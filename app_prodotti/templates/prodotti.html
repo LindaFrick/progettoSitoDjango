@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prodotti
+{% endblock %}
+
+
+{% block contenuto %}
+<h1>Prodotti</h1>
+
+<div class="row">
+    {% for prodotto in prodotti %}
+    <div class="col-lg-3">
+        <div class="card">
+            <img src="{{ prodotto.immagine }}" class="card-img-top" alt="...">
+            <div class="card-body">
+
+
+                <!--
+                <form action="." method="POST"> {% csrf_token %}  security token (no other page can submit this data)
+                    {{ form_aggiungi }}  form passato come context da views.py
+                    <button type="submit">Invia</button>
+                </form>
+                 -->
+
+
+                <h5 class="card-title">{{ prodotto.nome }}</h5>
+                <p class="card-text">
+                    {{ prodotto.prezzo }}
+                </p>
+
+                <a href="#" class="btn btn-primary"> Aggiungi al carrello </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- per scrivere codice dinamico si usano graffe e percentuali, un po' come javascript o php -->
+<!-- #accediamo ad una variabile dinamica con le doppie graffe -->
+<!-- #django purtroppo non si affida all'indendazione per
+capire quando finisce un for o un if e devi segnalarlo -->
+
+{% endblock %}

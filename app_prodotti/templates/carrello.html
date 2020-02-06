@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prodotti
+{% endblock %}
+
+
+{% block contenuto %}
+<h1>Il tuo carrello</h1>
+
+{% for carrello in carrelli %}
+    <ul>
+        <li>ID cliente: {{ carrello.cliente }} ID prodotto: {{ carrello.prodotto }} </li>
+    </ul>
+{% endfor %}
+
+{% endblock %}

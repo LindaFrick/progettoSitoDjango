@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registrati
+{% endblock %}
+
+
+{% block contenuto %}
+<h1>Registrati</h1>
+
+<form action="." method="POST"> {% csrf_token %} <!-- security token (no other page can submit this data) -->
+    {{ form_cliente }} <!-- form passato come context da views.py -->
+    <button type="submit">Invia</button>
+</form>
+
+{% endblock %}
