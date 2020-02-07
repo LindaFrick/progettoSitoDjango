@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["ambienteDJ.rk5twi43mr.us-west-2.elasticbeanstalk.com", "127.0.0.1"]
 
+#url predefinito per login
+LOGIN_URL = "/clienti/login"
 
 # Application definition
 
@@ -106,6 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'app_clienti.User'
 
 
 # Internationalization

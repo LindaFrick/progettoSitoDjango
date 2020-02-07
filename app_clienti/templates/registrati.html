@@ -9,7 +9,7 @@ Registrati
 <h1>Registrati</h1>
 
 <form action="." method="POST"> {% csrf_token %} <!-- security token (no other page can submit this data) -->
-    {{ form_cliente }} <!-- form passato come context da views.py -->
+    {{ form_cliente.as_p }} <!-- form passato come context da views.py   as.p è per formato -->
     <button type="submit">Invia</button>
 </form>
 

@@ -1,23 +1,26 @@
-from django.shortcuts import render
-from .forms import FormRegistrazione, FormRegCliente
-
+from django.shortcuts import render, redirect
+from .forms import FormRegistration, FormLogin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
 def registrati(request):  # pagina "registrati"
+    form_reg = FormRegistration(request.POST or None) #dichiaro un form e metto i dati in ingresso (request.POST)
 
-    # form BASATO sul modello cliente attraverso django
-    form_reg_cliente = FormRegCliente(request.POST or None)
+    if form_reg.is_valid(): #se il form contiene dati validi
+        form_reg.save() #salvo i dati automaticamente in un oggetto User
+        return redirect("/")
 
-    if form_reg_cliente.is_valid():
-        form_reg_cliente.save() #salvo i dati, non serve specificarli
-        form_reg_cliente = FormRegCliente()
-    return render(request, "registrati.html", {"form_cliente": form_reg_cliente})
+    context = {
+        "form_cliente": form_reg #passo il form al template così lo costruisce più in fretta
+    }
+    return render(request, "registrati.html", context)
+
 
 def login(request):  # pagina "login"
 
-    # form BASATO sul modello cliente attraverso django
-    form_reg_cliente = FormRegCliente(request.POST or None)
+    form_login = AuthenticationForm(request.POST or None)
 
-    if form_reg_cliente.is_valid():
-        form_reg_cliente.save() #salvo i dati, non serve specificarli
-        form_reg_cliente = FormRegCliente()
-    return render(request, "registrati.html", {"form_cliente": form_reg_cliente})
+    if form_login.is_valid():
+        #form_login.cleaned_data() #devo prendere dati e far query
+        form_login = AuthenticationForm()
+    return render(request, "registrati.html", {"form_login": form_login})

@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"C:\Users\Sorint\PycharmProjects\sitoNuovo\ambiente"
+$VIRTUAL_ENV = r"C:\Users\Sorint\PycharmProjects\progettoSitoDjango\ambiente"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
