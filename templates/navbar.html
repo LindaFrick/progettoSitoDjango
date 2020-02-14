@@ -12,15 +12,23 @@
       <li class="nav-item">
         <a class="nav-link" href="/prodotti">Prodotti</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/prodotti/carrello">Carrello</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/clienti/registrati">Registrati</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/clienti/login">Login</a>
-      </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Il mio profilo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/prodotti/carrello">Carrello</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/clienti/logout">Logout</a>
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/clienti/login">Login</a>
+        </li>
+      {% endif %}
+
     </ul>
   </div>
 </nav>

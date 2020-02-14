@@ -1,0 +1,28 @@
+POSTGRES DB SETUP FOR DJANGO
+- ho installato psycopg2, una libreria di python per connettersi a DB di postgres
+- ho creato un DB postgres (user linda, psw admin), mi son data tutti i permessi sul db
+- ho settato encoding UTF-8 e timezone UTC al db
+- ho settato il database postgres in settings.py
+- ho fatto "migrate" per creare le tabelle di base di django
+- per poter usare il pannello admin di django creo superuser (se non c'è già)
+- aggiunto tabelle dei modelli al db, makemigrations <nome app esistente>
+- settato "admin.py" per registrare tabelle db su pannello admin di django
+
+GESTIONE FORM NORMALE (ma comunque con Django, e fa validazione campi)
+- creato template per form (metto action="." così i dati vengono mandati sulla stessa pagina)
+- gestito dati del form dalla view che li riceve (se li mando a registrati.html devo gestirli nella view registrati)
+
+GESTIONE FORM DJANGO (fa validazione automatica dei campi)
+- creo file "NomeApp/forms.py" in cui definisco i modelli dei form
+- creo form normali oppure basati su modelli di Django
+- gestisco i dati del form dalla view che li riceve (posso salvare i dati del form in istanze dei miei modelli)
+
+GESTIONE LOGIN DJANGO
+- gli utenti di django si gestiscono con una tabella apposta che c'è nel db (auth_user)
+- esistono già dei form django per registrare o loggare utenti (django.contrib.auth.forms import UserCreationForm)
+- puoi definire un modello personalizzato per gli User di Django, da fare con DB vuoto!
+    (tutorial at: https://www.fomfus.com/articles/how-to-use-email-as-username-for-django-authentication-removing-the-username)
+- c'è la guida django per il login (https://docs.djangoproject.com/en/3.0/topics/auth/default/)
+- decorator @login_required mostra certi elementi solo se si è loggati (l'account admin è compreso in questo controllo)
+- puoi mostrare contenuti diversi se un utente è loggato o non lo è semplicemente con un if nella view
+- nel modello dell'elememento che voglio mostrare solo ad un utente ci metto la chiave esterna

@@ -1,7 +1,10 @@
-from django import forms
-from django.utils.safestring import mark_safe
 from app_clienti.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+class FormRegistration(UserCreationForm):  # form BASATO sul modello User, eredita campi di UserCreationForm
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "email", "password1", "password2"]
 
 
 #
@@ -40,15 +43,3 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 #         elif query.exists():
 #             raise forms.ValidationError("Questa mail esiste già")
 #         return mail
-
-
-class FormRegistration(UserCreationForm):  # form BASATO sul modello User, eredita campi di UserCreationForm
-    class Meta:
-        model = User
-        fields = ["first_name", "last_name", "email", "password1", "password2"]
-
-
-class FormLogin(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ["email", "password"]

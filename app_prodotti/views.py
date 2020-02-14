@@ -21,5 +21,6 @@ def prodotti(request):
 
 @login_required
 def carrello(request):
-    carrelli = CarrelloUtente.objects.all() #query per ottenere tutti gli elementi nella tabella Carrello
+
+    carrelli = CarrelloUtente.objects.all() #query per prodotti nel carrello dell'utente
     return render(request, "carrello.html", {"carrelli": carrelli})

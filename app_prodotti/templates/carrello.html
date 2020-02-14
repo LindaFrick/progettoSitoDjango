@@ -9,6 +9,14 @@ Prodotti
 <h1>Il tuo carrello</h1>
 
 {% for carrello in carrelli %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Rimuovi</a>
+      </div>
+    </div>
+
     <ul>
         <li>ID cliente: {{ carrello.cliente }} ID prodotto: {{ carrello.prodotto }} </li>
     </ul>

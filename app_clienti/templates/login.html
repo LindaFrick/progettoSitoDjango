@@ -11,6 +11,7 @@ Login
 <form action="." method="POST"> {% csrf_token %} <!-- security token (no other page can submit this data) -->
     {{ form_login.as_p }}
     <button type="submit">Login</button>
+    <p>Non hai un account? <a href="/clienti/registrati">Registrati</a>!</p>
 </form>
 
 {% endblock %}
